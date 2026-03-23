@@ -1,0 +1,15 @@
+{
+  "name": "faithmeet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FaithMeet — Christian Dating App",
+  "scripts": {
+    "api": "pnpm --filter @faithmeet/api run start:dev",
+    "mobile": "pnpm --filter @faithmeet/mobile run start",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
