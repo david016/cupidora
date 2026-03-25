@@ -1,4 +1,4 @@
-# FaithMeet — Christian Dating App
+# Cupidora — Dating App
 
 ## Tech Stack
 
