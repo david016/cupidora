@@ -1,6 +1,6 @@
 # Cupidora
 
-A faith-oriented dating app that connects people based on shared values, religion, and preferences.
+A dating app that connects people based on shared values, religion, and preferences.
 
 ## Tech Stack
 
@@ -51,6 +51,7 @@ pnpm docker:up
 ```
 
 This starts:
+
 - **PostgreSQL** (with PostGIS) on `localhost:5432`
 - **Redis** on `localhost:6379`
 
@@ -72,21 +73,21 @@ pnpm mobile
 
 ### Auth
 
-| Method | Endpoint           | Description              |
-|--------|--------------------|--------------------------|
-| POST   | `/auth/register`   | Register a new user      |
-| POST   | `/auth/login`      | Log in                   |
-| POST   | `/auth/refresh`    | Refresh access token     |
+| Method | Endpoint         | Description          |
+| ------ | ---------------- | -------------------- |
+| POST   | `/auth/register` | Register a new user  |
+| POST   | `/auth/login`    | Log in               |
+| POST   | `/auth/refresh`  | Refresh access token |
 
 ### Profiles (requires JWT)
 
-| Method | Endpoint              | Description                              |
-|--------|-----------------------|------------------------------------------|
-| POST   | `/profiles`           | Create your profile                      |
-| GET    | `/profiles/me`        | Get your own profile                     |
-| PATCH  | `/profiles/me`        | Update your profile                      |
-| GET    | `/profiles/discover`  | Discover profiles matching preferences   |
-| GET    | `/profiles/:id`       | View another user's public profile       |
+| Method | Endpoint             | Description                            |
+| ------ | -------------------- | -------------------------------------- |
+| POST   | `/profiles`          | Create your profile                    |
+| GET    | `/profiles/me`       | Get your own profile                   |
+| PATCH  | `/profiles/me`       | Update your profile                    |
+| GET    | `/profiles/discover` | Discover profiles matching preferences |
+| GET    | `/profiles/:id`      | View another user's public profile     |
 
 ## Stopping Infrastructure
 
