@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import type { Profile } from '../../profile/entities/profile.entity.js';
 
 export enum UserStatus {
   ACTIVE = 'active',
@@ -38,6 +40,9 @@ export class User {
     default: UserStatus.ACTIVE,
   })
   status!: UserStatus;
+
+  @OneToOne('Profile', (profile: Profile) => profile.user)
+  profile?: Profile;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt!: Date;

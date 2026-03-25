@@ -1,6 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { DataSource } from 'typeorm';
 import { AppModule } from './app.module.js';
+import { enablePostGIS } from './enable-postgis.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,6 +13,10 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  const dataSource = app.get(DataSource);
+  await enablePostGIS(dataSource);
+
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

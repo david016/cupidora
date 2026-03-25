@@ -42,7 +42,7 @@ docker-compose.yml — Postgres, Redis, API
 - PostgreSQL with PostGIS for location queries
 - Store user location as geography(Point, 4326)
 - Use ST_DWithin for distance-based discovery queries
-- JSONB for flexible fields (photo URLs, prompts, preferences)
+- JSONB for flexible fields (photo URLs, preferences)
 
 ## Key Business Rules
 
