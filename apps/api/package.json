@@ -1,5 +1,5 @@
 {
-  "name": "@faithmeet/api",
+  "name": "@cupidora/api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@faithmeet/shared": "workspace:^",
+    "@cupidora/shared": "workspace:^",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.1",

@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/faithmeet && pnpm --version && node --version)",
-      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/faithmeet && pnpm install 2>&1)",
-      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/faithmeet && pnpm list -r --depth 0 2>&1 | head -30)",
-      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/faithmeet && pnpm --filter @faithmeet/api exec node -e \"try { require\\('@faithmeet/shared'\\); console.log\\('OK: shared import works'\\) } catch\\(e\\) { console.log\\('FAIL:', e.message\\) }\" 2>&1)",
-      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/faithmeet/apps/api && npx tsc --noEmit 2>&1)"
+      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/cupidora && pnpm --version && node --version)",
+      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/cupidora && pnpm install 2>&1)",
+      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/cupidora && pnpm list -r --depth 0 2>&1 | head -30)",
+      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/cupidora && pnpm --filter @cupidora/api exec node -e \"try { require\\('@cupidora/shared'\\); console.log\\('OK: shared import works'\\) } catch\\(e\\) { console.log\\('FAIL:', e.message\\) }\" 2>&1)",
+      "Bash(cd C:/Users/david/Programovanie/2026/mojeProjekty/cupidora/apps/api && npx tsc --noEmit 2>&1)"
     ]
   }
 }

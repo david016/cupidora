@@ -1,11 +1,11 @@
 {
-  "name": "faithmeet",
+  "name": "cupidora",
   "version": "1.0.0",
   "private": true,
-  "description": "FaithMeet — Christian Dating App",
+  "description": "Cupidora — Dating App",
   "scripts": {
-    "api": "pnpm --filter @faithmeet/api run start:dev",
-    "mobile": "pnpm --filter @faithmeet/mobile run start",
+    "api": "pnpm --filter @cupidora/api run start:dev",
+    "mobile": "pnpm --filter @cupidora/mobile run start",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
   },
