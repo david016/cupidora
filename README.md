@@ -89,6 +89,22 @@ pnpm mobile
 | GET    | `/profiles/discover` | Discover profiles matching preferences |
 | GET    | `/profiles/:id`      | View another user's public profile     |
 
+### Likes (requires JWT)
+
+| Method | Endpoint          | Description                                      |
+| ------ | ----------------- | ------------------------------------------------ |
+| POST   | `/likes/:userId`  | Like a user (auto-creates match if mutual)       |
+| GET    | `/likes/received` | List users who liked you, with profile info       |
+| GET    | `/likes/sent`     | List users you've liked, with profile info        |
+| DELETE | `/likes/:userId`  | Unlike a user (also removes match if one existed) |
+
+### Matches (requires JWT)
+
+| Method | Endpoint             | Description                          |
+| ------ | -------------------- | ------------------------------------ |
+| GET    | `/matches`           | List your matches with profile info  |
+| DELETE | `/matches/:matchId`  | Unmatch (also removes both likes)    |
+
 ## Stopping Infrastructure
 
 ```bash
