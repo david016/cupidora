@@ -67,6 +67,12 @@ The API starts on `http://localhost:3000`. The database schema is auto-synchroni
 ### 5. Run the mobile app
 
 ```bash
+cp apps/mobile/.env.example apps/mobile/.env
+```
+
+Edit `apps/mobile/.env` to set the API URL. Defaults to `http://10.0.2.2:3000` (Android emulator). For a physical device, use your machine's LAN IP (e.g. `http://192.168.0.100:3000`).
+
+```bash
 pnpm mobile
 ```
 
