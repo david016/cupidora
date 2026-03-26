@@ -11,6 +11,7 @@ A dating app that connects people based on shared values, religion, and preferen
 - **Cache**: Redis 7
 - **ORM**: TypeORM
 - **Auth**: JWT (access + refresh tokens)
+- **Real-time**: Socket.io via NestJS WebSocket gateway
 
 ## Project Structure
 
@@ -104,6 +105,24 @@ pnpm mobile
 | ------ | -------------------- | ------------------------------------ |
 | GET    | `/matches`           | List your matches with profile info  |
 | DELETE | `/matches/:matchId`  | Unmatch (also removes both likes)    |
+
+### Messages (requires JWT)
+
+| Method | Endpoint                        | Description                                          |
+| ------ | ------------------------------- | ---------------------------------------------------- |
+| POST   | `/messages`                     | Send a message (matched: unlimited, unmatched: 1/day)|
+| GET    | `/messages/conversations`       | List all conversations with last message              |
+| GET    | `/messages/conversation/:userId`| Get paginated message history with a user             |
+| PATCH  | `/messages/:messageId/read`     | Mark a message as read (recipient only)               |
+
+### WebSocket Events
+
+Connect to the WebSocket server with a JWT token (query param `token`, auth object, or `Authorization` header).
+
+| Event         | Direction      | Description                          |
+| ------------- | -------------- | ------------------------------------ |
+| `newMessage`  | server → client| Emitted to recipient when a message is sent |
+| `messageRead` | server → client| Emitted to sender when their message is read |
 
 ## Stopping Infrastructure
 
