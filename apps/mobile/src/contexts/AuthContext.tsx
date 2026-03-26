@@ -10,7 +10,7 @@ interface AuthState {
 
 interface AuthContextType extends AuthState {
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, name: string) => Promise<void>;
+  register: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   isAuthenticated: boolean;
 }
@@ -46,11 +46,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setState({ accessToken, refreshToken, isLoading: false });
   }
 
-  async function register(email: string, password: string, name: string) {
+  async function register(email: string, password: string) {
     const { data } = await apiClient.post('/auth/register', {
       email,
       password,
-      name,
     });
     const { accessToken, refreshToken } = data.data;
     await SecureStore.setItemAsync('accessToken', accessToken);
