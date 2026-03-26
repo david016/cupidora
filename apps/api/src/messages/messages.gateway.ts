@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import {
   OnGatewayConnection,
   OnGatewayDisconnect,
+  OnGatewayInit,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
@@ -11,7 +12,7 @@ import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway({ cors: { origin: '*' } })
 export class MessagesGateway
-  implements OnGatewayConnection, OnGatewayDisconnect
+  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {
   @WebSocketServer()
   server!: Server;
@@ -23,6 +24,10 @@ export class MessagesGateway
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
   ) {}
+
+  afterInit() {
+    this.logger.log('WebSocket gateway initialized');
+  }
 
   async handleConnection(client: Socket) {
     try {
