@@ -86,6 +86,23 @@ export class ProfileService {
       .createQueryBuilder('p')
       .where('p.user_id != :userId', { userId });
 
+    // Exclude users the current user has already liked
+    qb.andWhere(
+      `p.user_id NOT IN (SELECT l.liked_id FROM likes l WHERE l.liker_id = :userId)`,
+    );
+
+    // Exclude users the current user is already matched with
+    qb.andWhere(
+      `p.user_id NOT IN (
+        SELECT m.user2_id FROM matches m WHERE m.user1_id = :userId
+        UNION
+        SELECT m.user1_id FROM matches m WHERE m.user2_id = :userId
+      )`,
+    );
+
+    // TODO: Exclude users who have blocked the current user or who the current user has blocked
+    // (will be implemented when the blocks feature is built)
+
     // Filter by gender preference
     if (prefs?.genderPreference && prefs.genderPreference !== 'all') {
       qb.andWhere('p.gender = :gender', { gender: prefs.genderPreference });
